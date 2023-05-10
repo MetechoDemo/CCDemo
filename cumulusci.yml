@@ -1,0 +1,27 @@
+minimum_cumulusci_version: '3.74.0'
+project:
+    name: CCDemo
+    package:
+        name: CCDemo
+        api_version: '55.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/PMM'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/CCDemo/tests
+            options:
+                outputdir: robot/CCDemo/results
+
+    robot_testdoc:
+        options:
+            path: robot/CCDemo/tests
+            output: robot/CCDemo/doc/CCDemo_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
